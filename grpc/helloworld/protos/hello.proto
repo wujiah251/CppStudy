@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package helloworld;
+
+
+service Greeter{
+    rpc GetEcho (GetEchoRequest) returns (GetEchoResponse){}
+}
+
+message GetEchoRequest{
+    string msg = 1;
+}
+
+message GetEchoResponse{
+    string msg = 1;
+}
