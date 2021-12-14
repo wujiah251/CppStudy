@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.10)
 # 项目名称
 project(CppStudy)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # 设置可选项
@@ -40,3 +40,4 @@ add_subdirectory(absl)
 add_subdirectory(grpc)
 add_subdirectory(thread)
 add_subdirectory(http)
+add_subdirectory(memory)
