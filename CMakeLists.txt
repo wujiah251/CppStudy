@@ -24,11 +24,10 @@ set(_PROTOBUF_LIBPROTOBUF protobuf::libprotobuf)
 find_package( gRPC REQUIRED)
 set(_GRPC_GRPCPP_UNSECURE gRPC::grpc++_unsecure)
 
-include_directories(${_PROTOBUF_INCLUDE_DIR})
-
-# 添加头文件路径
 include_directories(
+    ${_PROTOBUF_INCLUDE_DIR}
     /usr/local/include/redis
+    ${PROJECT_SOURCE_DIR}/grpc/protos
 )
 # 添加库文件路径
 link_directories(
