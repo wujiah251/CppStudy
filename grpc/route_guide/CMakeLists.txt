@@ -23,8 +23,20 @@ target_link_libraries(RouteGuideServer
     route_guide_helper
     )
 
+add_executable(TestRouteGuide test_route_guide.cpp)
+
+target_link_libraries(TestRouteGuide
+    ${_GRPC_GRPCPP_UNSECURE}
+    ${_PROTOBUF_LIBPROTOBUF}
+    libbenchmark.a
+    route_guide_proto
+    route_guide_helper
+    )
+
+
 install(TARGETS
     RouteGuideServer
     RouteGuideClient
+    TestRouteGuide
     DESTINATION bin/
     )
