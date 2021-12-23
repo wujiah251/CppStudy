@@ -24,15 +24,25 @@ set(_PROTOBUF_LIBPROTOBUF protobuf::libprotobuf)
 find_package( gRPC REQUIRED)
 set(_GRPC_GRPCPP_UNSECURE gRPC::grpc++_unsecure)
 
+# find boost
+find_package(Boost COMPONENTS log log_setup REQUIRED)
+
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS})
+    MESSAGE( STATUS "Boost_INCLUDE_DIRS = ${Boost_INCLUDE_DIRS}.")
+    MESSAGE( STATUS "Boost_LIBRARIES = ${Boost_LIBRARIES}.")
+    MESSAGE( STATUS "Boost_LIB_VERSION = ${Boost_LIB_VERSION}.")
+endif()
+
 include_directories(
     ${_PROTOBUF_INCLUDE_DIR}
-    /usr/local/include/redis
     ${PROJECT_SOURCE_DIR}/grpc/protos
-)
+    )
 # 添加库文件路径
 link_directories(
     /usr/local/lib
-)
+    /usr/lib
+    )
 
 add_subdirectory(absl)
 #add_subdirectory(hiredis)
@@ -40,3 +50,5 @@ add_subdirectory(grpc)
 add_subdirectory(thread)
 add_subdirectory(http)
 add_subdirectory(memory)
+add_subdirectory(log)
+add_subdirectory(boost)
