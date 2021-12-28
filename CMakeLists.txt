@@ -44,12 +44,12 @@ link_directories(
     /usr/lib
     )
 
-add_subdirectory(absl)
+#add_subdirectory(absl)
 #add_subdirectory(hiredis)
-add_subdirectory(grpc)
-add_subdirectory(thread)
-add_subdirectory(http)
-add_subdirectory(memory)
-add_subdirectory(log)
+#add_subdirectory(grpc)
+#add_subdirectory(thread)
+#add_subdirectory(http)
+#add_subdirectory(memory)
+#add_subdirectory(log)
 add_subdirectory(boost)
 add_subdirectory(simhash)

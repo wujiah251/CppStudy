@@ -7,14 +7,18 @@
 #include "Simhasher.hpp"
 using namespace simhash;
 
-int main(int argc, char **argv)
+int main()
 {
+    // 构造一个simhasher
     Simhasher simhasher("./dict/jieba.dict.utf8", "./dict/hmm_model.utf8", "./dict/idf.utf8", "./dict/stop_words.utf8");
     string s("我是蓝翔技工拖拉机学院手扶拖拉机专业的。不用多久，我就会升职加薪，当上总经理，出任CEO，走上人生巅峰。");
     size_t topN = 5;
     uint64_t u64 = 0;
     vector<pair<string, double>> res;
+    // 对文本进行分词，文本参数s，结果写入到引用变量res（词和权重），返回权重topN
+
     simhasher.extract(s, res, topN);
+    // 根据文本生成simhash值，传入文本、topN、u64
     simhasher.make(s, topN, u64);
     cout << "文本：\"" << s << "\"" << endl;
     cout << "关键词序列是: " << res << endl;
