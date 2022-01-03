@@ -10,9 +10,16 @@ target_link_libraries(TestCRUD
     ${LIBMONGOCXX_LIBRARIES}
 )
 
+add_executable(TestTransaction test_transaction.cpp)
+
+target_link_libraries(TestTransaction
+    ${LIBMONGOCXX_LIBRARIES}
+)
+
 
 install(TARGETS
     TestConnect
     TestCRUD
+    TestTransaction
     DESTINATION bin/
 )
