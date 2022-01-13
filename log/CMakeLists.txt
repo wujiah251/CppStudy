@@ -6,3 +6,5 @@
 #    TestLog
 #    DESTINATION bin/
 #)
+
+add_subdirectory(Spdlog)

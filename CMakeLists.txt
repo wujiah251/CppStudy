@@ -68,7 +68,7 @@ link_directories(
 #add_subdirectory(thread)
 #add_subdirectory(http)
 #add_subdirectory(memory)
-#add_subdirectory(log)
+add_subdirectory(log)
 add_subdirectory(boost)
 add_subdirectory(simhash)
 add_subdirectory(mongodb)
