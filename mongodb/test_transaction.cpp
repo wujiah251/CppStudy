@@ -9,7 +9,7 @@
 #include <mongocxx/exception/exception.hpp>
 #include <mongocxx/exception/logic_error.hpp>
 #include <mongocxx/exception/operation_exception.hpp>
-
+#include <mongocxx/pool.hpp>
 using bsoncxx::builder::stream::close_array;
 using bsoncxx::builder::stream::close_document;
 using bsoncxx::builder::stream::document;
@@ -29,7 +29,9 @@ int main(int argc, char **argv)
     mongocxx::client client = mongocxx::client(client_uri);
 
     /* Reinit collection */
-
+    mongocxx::pool pool{client_uri};
+    mongocxx::pool::entry entry = pool.acquire();
+    mongocxx::database db0 = (*entry)["db_0"];
     mongocxx::database db = client["db_0"];
     // mongocxx::collection coll = db["coll_0"];
     // auto builder = bsoncxx::builder::stream::document{};
@@ -93,6 +95,8 @@ int main(int argc, char **argv)
     catch (std::exception &e)
     {
         std::cout << "exception:" << e.what() << std::endl;
+        session1.abort_transaction();
     }
+    session1.commit_transaction();
     return 0;
 }

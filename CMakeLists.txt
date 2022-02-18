@@ -64,7 +64,7 @@ link_directories(
 
 #add_subdirectory(absl)
 #add_subdirectory(hiredis)
-#add_subdirectory(grpc)
+add_subdirectory(grpc)
 #add_subdirectory(thread)
 #add_subdirectory(http)
 #add_subdirectory(memory)
